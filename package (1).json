@@ -1,0 +1,30 @@
+{
+  "name": "keystone-identity-platform",
+  "version": "2.3.11",
+  "private": true,
+  "description": "KEYSTONE \u2014 BCH + Nostr identity binding with Mainnet/Chipnet transaction engine and WizardConnect",
+  "type": "module",
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "build": "node --check public/app.js && node --check src/server.js && node scripts/verify-build.js && node scripts/build-dist.js",
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test",
+    "check": "node --check src/env.js && node --check src/security.js && node --check src/config.js && node --check src/crypto.js && node --check src/challenges.js && node --check src/identity.js && node --check src/bch.js && node --check src/bch-local.js && node --check src/nostr.js && node --check src/nostr-event.js && node --check src/registry.js && node --check src/relays.js && node --check src/payments.js && node --check src/utxos.js && node --check src/tx-builder.js && node --check src/tx-inspector.js && node --check src/tx-signing.js && node --check src/tx-status.js && node --check src/network-verifier.js && node --check src/mainnet-broadcast.js && node --check src/store.js && node --check src/store-sqlite.js && node --check src/http-hardening.js && node --check src/readiness.js && node --check src/server.js && node --check src/version.js && node --check public/app.js && node --check public/wizardconnect-guards.js && node --check public/wizardconnect-diagnostics.js && node --check scripts/verify-proof.js",
+    "verify:proof": "node scripts/verify-proof.js",
+    "verify:live": "node scripts/live-integration-check.mjs",
+    "fixtures:bch": "node scripts/make-bch-fixture.mjs",
+    "relay:diagnose": "node scripts/relay-diagnose.mjs",
+    "test:e2e": "playwright test --config=playwright.config.js"
+  },
+  "dependencies": {
+    "@bitauth/libauth": "2.0.0",
+    "nostr-tools": "2.10.4",
+    "ws": "8.18.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.49.1"
+  }
+}
