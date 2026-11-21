@@ -1,0 +1,20 @@
+{
+  "product": "KEYSTONE",
+  "version": "2.3.11",
+  "generatedAt": "2026-11-21T14:25:26.900Z",
+  "runtime": "Node.js",
+  "contents": [
+    "src/",
+    "public/",
+    "migrations/",
+    "scripts/verify-proof.js",
+    "package.json",
+    ".env.example",
+    "README.md",
+    "render.yaml",
+    ".gitignore"
+  ],
+  "install": "npm install",
+  "start": "npm start",
+  "note": "Install runtime dependencies in this directory before starting. Configure .env. This source distribution is not a public-hosting deployment."
+}

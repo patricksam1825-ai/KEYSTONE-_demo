@@ -1,0 +1,24 @@
+# Render Blueprint for the KEYSTONE public demo (mainnet, low-value, safety-capped).
+services:
+  - type: web
+    name: keystone
+    runtime: node
+    plan: free
+    buildCommand: npm install --omit=dev
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 22.14.0
+      - key: KEYSTONE_CHAIN
+        value: mainnet
+      - key: ALLOW_PUBLIC_HOST
+        value: "true"
+      - key: DEMO_MODE
+        value: "true"
+      - key: HOST
+        value: 0.0.0.0
+      - key: NOSTR_RELAYS
+        value: wss://relay.damus.io,wss://nos.lol
+      - key: DATA_DIR
+        value: ./data
